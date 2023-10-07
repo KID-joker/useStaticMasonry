@@ -1,0 +1,81 @@
+{
+  "name": "vue-masonry-grid",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.8.0",
+  "description": "",
+  "author": "KID-joker <kid_joker@126.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/KID-joker/vue-masonry-grid#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KID-joker/vue-masonry-grid.git"
+  },
+  "bugs": "https://github.com/KID-joker/vue-masonry-grid/issues",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "play:2.7": "nr -C playgrounds/vue2.7 dev",
+    "play:3": "nr -C playgrounds/vue3 dev",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0",
+    "vue": "^2.6.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "vue-demi": "^0.14.6"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.6",
+    "@antfu/ni": "^0.21.8",
+    "@types/node": "^18.18.4",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.51.0",
+    "esno": "^0.16.3",
+    "lint-staged": "^13.3.0",
+    "pnpm": "^8.8.0",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.2.2",
+    "unbuild": "^1.2.1",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.16"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
